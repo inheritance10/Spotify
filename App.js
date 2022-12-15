@@ -1,19 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/Header/Header';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+import Main from "./src/main/Main";
+
 export default function App() {
   return (
-    <View style={styles.container}>
-            <Header />
-    </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Main Page">
+          <Stack.Screen options={{headerShown: false}} name="Main Page" component={Main} />
+        </Stack.Navigator>
+      </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#191414',
 
 
-  },
-});
